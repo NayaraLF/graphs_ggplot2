@@ -1,0 +1,6 @@
+	etapa	artigos
+ua1	colonizacao	18
+ua2	dispersao	25
+ua3	estabelecimento	26
+ua4	impacto	37
+ua5	introducao	4
