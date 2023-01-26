@@ -1,8 +1,9 @@
 ######Barplot aquatic macrophyte species############
 
-
+library(ggplot2)
+library(tidyverse)
 #import dataset
-dados<- read.table("sp.etapa.txt", h=T)
+dados<- read.table("sp.txt", h=T)
 dados
 head(dados)
 
@@ -11,7 +12,7 @@ head(dados)
 
 #to order the legend
 dados$etapa <- factor(dados$etapa, levels=c("introducao", "colonizacao", "estabelecimento", "dispersao", "impacto"),
-                      labels=c("Introdução", "Colonização", "Estabelecimento", "Dispersão","Impacto" ))
+                      labels=c("Introduction", "Colonization", "Establishment", "Spread","Impact" ))
 
 #plot
 
@@ -19,8 +20,8 @@ g<- dados %>%
   ggplot(aes(y=reorder(factor(codigo.sp), codigo.sp, function(y) length(y))))+
   geom_bar((aes(fill = etapa)))+
   theme(legend.position = "right")+
-  labs(x= "Número de artigos",y= "Espécies")+
-  scale_fill_brewer(palette="Set2", name = "Etapas da Invasão")+
+  labs(x= "Number of Articles",y= "Species")+
+  scale_fill_brewer(palette="Set2", name = "Invasion Stage")+
   theme_bw()+
   theme(text = element_text(size=16))
 
